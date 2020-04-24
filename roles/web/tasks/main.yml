@@ -1,0 +1,18 @@
+---
+- name: install git
+  yum: name=git state=present
+
+- name: checkout Hi Gaes!
+  git: repo=https://github.com/invaleed/hi-gaes.git version="{{gaes_version|string}}" dest=/var/www/cgi-bin/gaes force=yes
+
+- name: set permission on the app
+  file: name=/var/www/cgi-bin/gaes/gaes.py mode=0755
+
+- meta: flush_handlers
+
+- name: check proper respone
+  uri:
+    url: http://localhost/cgi-bin/gaes/gaes.py
+    return_content: yes
+  register: result
+  until: '"Hi Gaes!" in result.content'

@@ -1,0 +1,13 @@
+---
+# tasks file for common
+- name: install python bindings for SELinux
+  yum:
+    state: present
+    name: 
+      - libselinux-python
+      - libsemanage-python
+
+- name: test to see if SELinux is running
+  command: getenforce
+  register: sestatus
+  changed_when: false

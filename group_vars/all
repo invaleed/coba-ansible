@@ -1,0 +1,10 @@
+---
+
+http_port: 80
+ntpserver: 0.id.pool.ntp.org
+apache_docroot: /var/www/html/
+gaes_version: 1.0
+apache_test_message: Hello
+apache_config: /etc/httpd/conf/httpd.conf
+sites_available: /etc/httpd/conf/sites-available
+sites_enabled: /etc/httpd/conf/sites-enabled
