@@ -8,7 +8,7 @@
   - common
 
 - name: apply apache roles
-  hosts: webservers
+  hosts: all
   remote_user: ansible
   become: yes
 
