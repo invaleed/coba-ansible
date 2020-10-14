@@ -1,4 +1,5 @@
 <html>
 {{ apache_test_message }} {{ ansible_distribution }} {{ansible_distribution_version }} <br />
 Current Host: {{ ansible_hostname }} <br />
+IP Address: {{ ansible_default_ipv4.interface }} <br />
 </html>
