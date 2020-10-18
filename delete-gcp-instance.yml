@@ -4,7 +4,7 @@
      gcp_project: ansible-demo-ict
      gcp_cred_kind: serviceaccount
   tasks:
-	- name: delete an instance
+    - name: delete an instance
       gcp_compute_instance:
         name: wordpress-ubuntu
         zone: asia-southeast2-a
