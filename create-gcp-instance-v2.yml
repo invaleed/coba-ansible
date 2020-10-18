@@ -52,7 +52,7 @@
    - name: Create Firewall HTTP Allow
      gce_net:
        name: default
-       fwname: "Allow HTTP"
+       fwname: "http-allow"
        allowed: tcp:80
        state: "present"
        src_range: ['0.0.0.0/0']
