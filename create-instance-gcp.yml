@@ -15,17 +15,9 @@
         state: present
       register: disk
 
-    - name: create a  VPC network
-      gcp_compute_network:
-        name: network-instance
-        project: "{{ gcp_project }}"
-        auth_kind: "{{ gcp_cred_kind }}"
-        state: present
-      register: network
-
     - name: create an IPv4 public IP Address
       gcp_compute_address:
-        name: address-instance
+        name: default
         region: asia-southeast2
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
