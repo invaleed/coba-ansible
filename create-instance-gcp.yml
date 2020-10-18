@@ -15,6 +15,23 @@
         state: present
       register: disk
 
+    - name: create a  VPC network
+      gcp_compute_network:
+        name: default
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: network
+
+    - name: create an IPv4 public IP Address
+      gcp_compute_address:
+        name: address-instance
+        region: asia-southeast2
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: address
+
     - name: create the Ubuntu 18.04 instance
       gcp_compute_instance:
         name: wordpress-ubuntu
@@ -23,6 +40,12 @@
         - auto_delete: 'true'
           boot: 'true'
           source: "{{ disk }}"
+        network_interfaces:
+        - network: "{{ network }}"
+          access_configs:
+          - name: External NAT
+            nat_ip: "{{ address }}"
+            type: ONE_TO_ONE_NAT
         zone: asia-southeast2-a
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
