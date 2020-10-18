@@ -1,5 +1,5 @@
 - name: Create a GCP instance
-  hosts: all
+  hosts: localhost
   vars:
      gcp_project: ansible-demo-ict
      gcp_cred_kind: serviceaccount
