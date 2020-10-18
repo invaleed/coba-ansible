@@ -50,7 +50,7 @@
      wait_for: host={{ address.address }} port=22 delay=10 timeout=60
    
    - name: Create Firewall HTTP Allow
-     community.general.gce_net:
+     gce_net:
        name: default
        fwname: "Allow HTTP"
        allowed: tcp:80
