@@ -1,0 +1,13 @@
+- name: Housekeeping GCP instance
+  hosts: all
+  vars:
+     gcp_project: ansible-demo-ict
+     gcp_cred_kind: serviceaccount
+  tasks:
+	- name: delete an instance
+      gcp_compute_instance:
+        name: wordpress-ubuntu
+        zone: asia-southeast2-a
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: absent
