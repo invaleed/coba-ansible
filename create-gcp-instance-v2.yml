@@ -16,8 +16,6 @@
          zone: "{{ zone }}"
          project: "{{ gcp_project }}"
          auth_kind: "{{ gcp_cred_kind }}"
-         scopes:
-           - https://www.googleapis.com/auth/compute
          state: present
      register: disk
    - name: create a address
@@ -26,8 +24,6 @@
          region: "{{ region }}"
          project: "{{ gcp_project }}"
          auth_kind: "{{ gcp_cred_kind }}"
-         scopes:
-           - https://www.googleapis.com/auth/compute
          state: present
      register: address
    - name: create a instance
@@ -48,8 +44,6 @@
          zone: "{{ zone }}"
          project: "{{ gcp_project }}"
          auth_kind: "{{ gcp_cred_kind }}"
-         scopes:
-           - https://www.googleapis.com/auth/compute
      register: instance
 
    - name: Wait for SSH to come up
