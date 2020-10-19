@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-      gcp_project: demo-ansible-ict
+      gcp_project: cool-oarlock-293009
       gcp_cred_kind: serviceaccount
       zone: "asia-southeast2-a"
       region: "asia-southeast2"
