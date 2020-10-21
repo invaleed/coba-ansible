@@ -6,8 +6,8 @@
   tasks:
     - name: delete an instance
       gcp_compute_instance:
-#        name: ubuntu-wordpress
-#        zone: asia-southeast2-a
+        name: ubuntu-wordpress
+        zone: asia-southeast2-a
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
         state: absent
