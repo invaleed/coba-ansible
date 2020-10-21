@@ -6,7 +6,6 @@
       gcp_cred_kind: serviceaccount
       zone: "asia-southeast2-a"
       region: "asia-southeast2"
-
   tasks:
    - name: create a disk
      gcp_compute_disk:
@@ -56,3 +55,7 @@
        allowed: tcp:80
        state: "present"
        src_range: ['0.0.0.0/0']
+
+   - name: Show Ubuntu 18.04 Instance Details
+     debug:
+       msg: "The ubuntu-wordpress instance is accessible at {{ address.address }}"
